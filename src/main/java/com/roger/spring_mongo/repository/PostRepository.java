@@ -12,5 +12,8 @@ import java.util.List;
 public interface PostRepository extends MongoRepository<Post, String> {
 
     @Query("{ 'title': { $regex: ?0, $options: 'i' } }")
+    List<Post> searchTitle(String text);
+
+    @Query("{ 'title': { $regex: ?0, $options: 'i' } }")
     List<Post> findByTitleRegex(String txt);
 }
