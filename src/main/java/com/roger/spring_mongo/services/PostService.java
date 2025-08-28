@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.roger.spring_mongo.domain.Post;
 import com.roger.spring_mongo.repository.PostRepository;
 import com.roger.spring_mongo.services.exception.ObjectNotFoundException;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,6 +25,10 @@ public class PostService {
         return repo.searchTitle(text);
     }
 
+    public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+        maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+        return repo.fullSearch(text, minDate, maxDate);
 
+    }
 
 }
