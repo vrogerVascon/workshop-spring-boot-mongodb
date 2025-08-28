@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.roger.spring_mongo.dto.AuthorDTO;
 
-@Document(collation = "post")
+@Document(collection = "posts")
 public class Post implements Serializable {
     @Id
     private String id;
